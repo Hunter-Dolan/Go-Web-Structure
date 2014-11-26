@@ -31,13 +31,7 @@ func (db_struct *DatabaseConnection) DBConnect() {
 	db.DB().SetMaxOpenConns(100)
 
 	db_struct.Connection = db
-	db_struct.migrate()
 }
-
-func (db_struct *DatabaseConnection) migrate() {
-	//db_struct.Connection.AutoMigrate(&models.User{})
-}
-
 // Public Methods
 
 func (db_struct *DatabaseConnection) Debug() {
