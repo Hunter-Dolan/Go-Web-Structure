@@ -5,7 +5,6 @@ import (
     _ "github.com/lib/pq"
     _ "github.com/go-sql-driver/mysql"
     _ "github.com/mattn/go-sqlite3"
-    //"../models"
 )
 
 type DatabaseConnection struct {
@@ -24,7 +23,7 @@ func InitDB() {
 func (db_struct *DatabaseConnection) DBConnect() {
   //db, err := gorm.Open("postgres", "user=gorm dbname=gorm sslmode=disable")
   // db, err := gorm.Open("mysql", "user:password@/dbname?charset=utf8&parseTime=True")
-  db, _ := gorm.Open("sqlite3", "/Users/Hunter/Desktop/gorm.db")
+  db, _ := gorm.Open("sqlite3", "./tmp/db.db")
   
   // Then you could invoke `*sql.DB`'s functions with it
   db.DB().Ping()
