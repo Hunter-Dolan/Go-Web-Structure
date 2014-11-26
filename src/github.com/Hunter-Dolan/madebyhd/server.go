@@ -1,23 +1,23 @@
 package server
 
 import (
-	"net/http"
-	"os"
-  "./config/initializers"
-  "./config"
+	"./config"
+	"./config/initializers"
 	"github.com/gorilla/handlers"
 	"github.com/gorilla/mux"
+	"net/http"
+	"os"
 )
 
 var debug = true
 
 func Init() {
-  
-  initializers.Init(debug)
-  
+
+	initializers.Init(debug)
+
 	r := mux.NewRouter()
 
-  config.Route(r)
+	config.Route(r)
 
 	if debug {
 		h := handlers.LoggingHandler(os.Stdout, r)
@@ -25,6 +25,6 @@ func Init() {
 	} else {
 		http.Handle("/", r)
 	}
-  
+
 	http.ListenAndServe(":8000", nil)
 }

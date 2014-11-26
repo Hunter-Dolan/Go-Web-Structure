@@ -8,8 +8,8 @@ type User struct {
 }
 
 func FindUserByName(name string) User {
-  user := User{}
-  
-  global.DB.Connection.Where("name = ?", name).First(&user)
-  return user
+	user := User{}
+
+	global.DB.Connection.Where("name = ?", name).First(&user)
+	return user
 }

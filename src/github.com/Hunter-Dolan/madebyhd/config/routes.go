@@ -1,20 +1,20 @@
 package config
 
 import (
-  "github.com/gorilla/mux"
-  "../app/controllers"
+	"../app/controllers"
+	"github.com/gorilla/mux"
 )
 
 func Route(r *mux.Router) {
-  //
-  // Welcome
-  //
+	//
+	// Welcome
+	//
 	r.HandleFunc("/", controllers.WelcomeShow)
-  
-  //
-  // Users
-  //
+
+	//
+	// Users
+	//
 	r.HandleFunc("/users", controllers.UsersIndex)
-	r.HandleFunc("/users/new", controllers.UsersNew)  
-	r.HandleFunc("/users/{name}", controllers.UsersShow)    
+	r.HandleFunc("/users/new", controllers.UsersNew)
+	r.HandleFunc("/users/{name}", controllers.UsersShow)
 }
